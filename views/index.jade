@@ -1,5 +1,42 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .container
+    .nav.navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          a.navbar-brand(href='#') BBC Track Finder
+    .row
+      .col-lg-12
+        .jumbotron(style='margin-top: 30px !important;')
+          h1 BBC Track Finder
+          br
+          p.lead Want to know what songs have been playing on the radio? You came to the right place.
+    .row.userdata
+      .col-lg-4
+        .input-group.input-group-lg
+          span.input-group-addon When did you listen?
+          input.form-control#dp2(data-date="12-02-2012" data-date-format="dd-mm-yyyy", type='text', value="12-02-2012")
+      .col-lg-6
+        .input-group.input-group-lg
+          span.input-group-addon Which radio show were you listening to?
+          select.form-control
+            option Radio 1
+            option Radio 2
+            option Radio 6
+      .col-lg-2
+        .input-group
+          button.btn.btn-success.btn-lg Search!
+    .row
+      .col-lg-12
+
+    .row.playlists-container
+      .col-lg-6.col-lg-offset-3
+        h2 PLAYLIST PICKER
+
+  //- Datepicker and Show Picker
+  
+
+  //- Playlist body
+
+  //- LOL FOOTER
