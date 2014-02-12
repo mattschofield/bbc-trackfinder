@@ -46,10 +46,12 @@ html
             li
               - for (var result in results) {
                 .row
-                  .col-lg-4
-                    img.track-image(src=results[result].image)
-                  .col-lg-8
-                    h3= results[result].title
+                  .col-lg-12
+                    .row
+                      .col-lg-4
+                        img.track-image(src=results[result].image)
+                      .col-lg-8
+                        h3= results[result].title
                   - for (var track in results[result].tracks) {
                     .row
                       .col-lg-3
