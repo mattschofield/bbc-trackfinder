@@ -1,6 +1,8 @@
 var fs = require('fs')
   , path = require('path')
-  , request = require('request');
+  , request = require('request')
+  , moment = require('moment')
+  , finder = require('../lib/finder');
 
 /*
  * GET home page.
@@ -10,12 +12,16 @@ var tempResults = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/resul
 
 exports.index = function(req, res){
 
-  request("http://www.bbc.co.uk/frameworks/barlesque/orb/webservice.json", function (err, response, body) {
-    var barlesque = JSON.parse(body).barlesque;
+  finder.findByDay(moment('2014-01-01', 'YYYY-MM-DD').toDate(), function (foundResults) {
+    request("http://www.bbc.co.uk/frameworks/barlesque/orb/webservice.json", function (err, response, body) {
+      var barlesque = JSON.parse(body).barlesque;
 
-    res.locals.barlesque = barlesque;
+      res.locals.barlesque = barlesque;
 
-    res.render('index', { title: 'Express', results: tempResults.results, log: console.log });
+      res.render('index', { title: 'Express', results: foundResults.results, log: console.log });
+    })
   })
+
+  
 
 };
