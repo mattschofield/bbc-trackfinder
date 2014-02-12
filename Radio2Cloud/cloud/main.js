@@ -23,7 +23,7 @@ Parse.Cloud.define("radio2", function(request, response) {
     	twilio.sendSms({
             to: numberTo, 
             from: '+441633538987', 
-            body: 'YAY'
+            body: 'YAY...wait for a call'
         }, function(err, responseData) { 
             if (err) {
               console.log(err);
@@ -33,6 +33,20 @@ Parse.Cloud.define("radio2", function(request, response) {
             }
           }
         );
+
+        twilio.makeCall({
+	        to: numberTo, 
+	        from: '+441633538987', 
+	        url: 'http://bbcgettrack.parseapp.com/track' 
+	    }, function(err, responseData) { 
+	        if (err) {
+	          console.log(err);
+	        } else { 
+	          console.log(responseData.from); 
+	          console.log(responseData.body);
+	        }
+	      }
+	    );
      }else{
      	twilio.sendSms({
             to: numberTo, 

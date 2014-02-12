@@ -15,6 +15,17 @@ app.get('/hello', function(req, res) {
   res.render('hello', { message: 'Congrats, you just set up your app!' });
 });
 
+// This is an example of hooking up a request handler with a specific request
+// path and HTTP verb using the Express routing API.
+app.post('/track', function(req, res) {
+    
+    var trackUrl = "http://static.bbci.co.uk/snippets/segments/cb/p002j9cb_noisrc_imeldamay_bigbadhandsomeman.mp3";
+
+    var twiml = new twiliolib.TwimlResponse();
+    res.send(twiml.play(trackUrl).toString());  
+
+});
+
 // // Example reading from the request query string of an HTTP get request.
 // app.get('/test', function(req, res) {
 //   // GET http://example.parseapp.com/test?message=hello
