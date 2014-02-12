@@ -9,6 +9,49 @@ html
     script(type='text/javascript', src='/javascripts/bootstrap.min.js')
     script(type='text/javascript', src='/javascripts/bootstrap-datepicker.js')
     script(type='text/javascript', src='/javascripts/global.js')
+    script(type='text/javascript').
+      !{barlesque.head}
 
   body
-    block content
+    .body-first
+      script(type='text/javascript').
+        =!{barlesque.bodyfirst}
+
+    .container
+      .row
+        .col-lg-12
+          .jumbotron(style='margin-top: 30px !important;')
+            h1 BBC Track Finder
+            br
+            p.lead Want to know what songs have been playing on the radio? You came to the right place.
+      .row.userdata
+        .col-lg-4
+          .input-group.input-group-lg
+            span.input-group-addon When did you listen?
+            input.form-control#dp2(data-date="12-02-2012" data-date-format="dd-mm-yyyy", type='text', value="12-02-2012")
+        .col-lg-6
+          .input-group.input-group-lg
+            span.input-group-addon Which radio show were you listening to?
+            select.form-control
+              option Radio 1
+              option Radio 2
+              option Radio 6
+        .col-lg-2
+          .input-group
+            button.btn.btn-success.btn-lg Search!
+
+      .row(style="margin-top: 40px;")
+        .col-lg-8.col-lg-offset-2
+          ul 
+            li
+              .row
+                .col-lg-3
+                  img.track-image(src=results[0].image)
+                .col-lg-9
+                  h3= results[0].title
+                  h4= results[0].tracks[0].artist
+                  h4= results[0].tracks[0].title
+
+    .body-last
+      script(type='text/javascript').
+        =!{barlesque.bodylast}

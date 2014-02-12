@@ -1,5 +1,6 @@
 var fs = require('fs')
-  , path = require('path');
+  , path = require('path')
+  , request = require('request');
 
 /*
  * GET home page.
@@ -8,5 +9,13 @@ var fs = require('fs')
 var tempResults = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/results.json')))
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Express', results: tempResults.results, log: console.log });
+
+  request("http://www.bbc.co.uk/frameworks/barlesque/orb/webservice.json", function (err, response, body) {
+    var barlesque = JSON.parse(body).barlesque;
+
+    res.locals.barlesque = barlesque;
+
+    res.render('index', { title: 'Express', results: tempResults.results, log: console.log });
+  })
+
 };

@@ -1,8 +1,19 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: url('http://static.bbci.co.uk/radio/437/1.5.8/img/backgrounds/services/bbc_radio_two_t1.jpg');
+  background-size: 100% 100% no repeat;
 }
 
 a {
   color: #00B7FF;
+}
+
+li {
+  list-style: none;
+}
+
+.track-image {
+  max-height: 100px;
+  width: auto;
 }
