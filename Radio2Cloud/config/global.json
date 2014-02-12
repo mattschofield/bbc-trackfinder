@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "BBCGetTrack": {
+            "applicationId": "zfFs3stxaEZaWDzKQJXl4iMTIfQ1oIQBQoeiVZ1S", 
+            "masterKey": "2XWheTWlL0nbnehvFBdDARk3IYDY5OxaysLqk4pl"
+        }, 
+        "_default": {
+            "link": "BBCGetTrack"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.2.16"
+    }
+}
